@@ -5,7 +5,7 @@ using UnityEngine;
 public class MyLookAt : MonoBehaviour
 {
     public Transform target;
-
+    public float viewingAngle = 70.0f;
     void Update()
     {
         Vector3 forward = transform.forward;
@@ -16,13 +16,26 @@ public class MyLookAt : MonoBehaviour
 
         Debug.Log($"angle : {angle * Mathf.Rad2Deg}");
 
-        if(Vector3.Dot(transform.right, toTarget) >= 0.0f)  // +면 오른쪽, -면 왼쪽에 있는 것
+        //if(Vector3.Dot(transform.right, toTarget) >= 0.0f)  // +면 오른쪽, -면 왼쪽에 있는 것
+        //{
+        //    transform.rotation = transform.rotation * Quaternion.Euler(0f, angle, 0f);
+        //}
+        //else
+        //{
+        //    transform.rotation = transform.rotation * Quaternion.Euler(0f, -angle, 0f);
+        //}
+
+        if(angle * Mathf.Rad2Deg < viewingAngle) // 타겟과의 각도가 시야각보다 작아지면 바라보기
         {
-            transform.rotation = transform.rotation * Quaternion.Euler(0f, angle, 0f);
-        }
-        else
-        {
-            transform.rotation = transform.rotation * Quaternion.Euler(0f, -angle, 0f);
+            Debug.Log("TargetCheck!!!");
+            if (Vector3.Dot(transform.right, toTarget) >= 0.0f)  // +면 오른쪽, -면 왼쪽에 있는 것
+            {
+                transform.rotation = transform.rotation * Quaternion.Euler(0f, angle, 0f);
+            }
+            else
+            {
+                transform.rotation = transform.rotation * Quaternion.Euler(0f, -angle, 0f);
+            }
         }
     }
 }
