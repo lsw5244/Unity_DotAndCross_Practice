@@ -15,5 +15,14 @@ public class MyLookAt : MonoBehaviour
         float angle = Mathf.Acos(dot / toTarget.magnitude); // 타겟의 각도 구하기
 
         Debug.Log($"angle : {angle * Mathf.Rad2Deg}");
+
+        if(Vector3.Dot(transform.right, toTarget) >= 0.0f)  // +면 오른쪽, -면 왼쪽에 있는 것
+        {
+            transform.rotation = transform.rotation * Quaternion.Euler(0f, angle, 0f);
+        }
+        else
+        {
+            transform.rotation = transform.rotation * Quaternion.Euler(0f, -angle, 0f);
+        }
     }
 }
