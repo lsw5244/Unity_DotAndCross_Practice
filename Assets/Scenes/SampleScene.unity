@@ -503,6 +503,7 @@ GameObject:
   - component: {fileID: 1552500157}
   - component: {fileID: 1552500161}
   - component: {fileID: 1552500162}
+  - component: {fileID: 1552500163}
   m_Layer: 0
   m_Name: Cam
   m_TagString: Untagged
@@ -608,8 +609,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1552500156}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd3097aa95709b34a8748edc2584d594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 597318787}
+  viewAngle: 70
+--- !u!114 &1552500163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552500156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a45bfe5fed106824fb991486ef1c5bf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 597318787}
+  viewingAngle: 70

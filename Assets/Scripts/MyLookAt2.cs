@@ -18,15 +18,19 @@ public class MyLookAt2 : MonoBehaviour
 
         Vector3 normalVec = Vector3.Cross(toOther, transform.forward);
 
-        if(Vector3.Dot(Vector3.up, normalVec) < 0f)
+        if(angle * Mathf.Rad2Deg < viewingAngle)
         {
-            // 타겟이 오른쪽에 있음
-            transform.rotation *= Quaternion.Euler(0f, angle, 0f);
+            if (Vector3.Dot(Vector3.up, normalVec) < 0f)
+            {
+                // 타겟이 오른쪽에 있음
+                transform.rotation *= Quaternion.Euler(0f, angle, 0f);
+            }
+            else
+            {
+                // 타겟이 왼쪽에 있음
+                transform.rotation *= Quaternion.Euler(0f, -angle, 0f);
+            }
         }
-        else
-        {
-            // 타겟이 왼쪽에 있음
-            transform.rotation *= Quaternion.Euler(0f, -angle, 0f);
-        }
+
     }
 }
